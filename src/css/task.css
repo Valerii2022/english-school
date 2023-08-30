@@ -42,10 +42,16 @@
 
 body {
   margin: 0;
-  padding: 0;
 }
 
-/* ================================ */
+.application-input-field,
+.application-textarea-field {
+  /* ============================== */
+  box-sizing: border-box;
+  /* ================================ */
+}
+
+/* ================================================================================================= */
 .application-section {
   padding-top: 40px;
   padding-bottom: 40px;
@@ -66,7 +72,7 @@ body {
 }
 
 .application-title {
-  color: #121417;
+  color: var(--black); /*-------------------*/
   text-align: center;
   font-size: 32px;
   font-weight: 600;
@@ -123,19 +129,60 @@ body {
   }
 }
 
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .application-content-wrap {
+    padding-left: 102px;
+    padding-right: 102px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .application-content-wrap {
+    display: flex;
+    gap: 32px;
+  }
+}
+
 .application-image-wrapper {
-  @media screen and (max-width: 1279px) {
+  border-radius: 30px;
+  background: var(--green);
+  width: 492px;
+  overflow: hidden;
+}
+
+@media screen and (max-width: 1279px) {
+  .application-image-wrapper {
     display: none;
   }
 }
+
 .application-image {
+  margin-bottom: 20px;
 }
 .application-image-title {
+  color: var(--white);
+  text-align: center;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
 }
 .application-image-descr {
+  color: rgba(255, 255, 255, 0.7);
+  text-align: center;
+  font-size: 16px;
+  line-height: 1.5;
+  padding-left: 20px;
+  padding-right: 20px;
 }
-.application-form {
+
+@media screen and (min-width: 1280px) {
+  .application-form {
+    width: 524px;
+  }
 }
+
 .application-label {
   display: block;
   margin-bottom: 18px;
@@ -143,32 +190,51 @@ body {
 
 .application-input-field,
 .application-textarea-field {
-  /* ============================== */
-  box-sizing: border-box;
-  /* ================================ */
   padding-left: 18px;
   border-radius: 12px;
   border: 1px solid rgba(18, 20, 23, 0.1);
   width: 100%;
 
-  color: #121417;
+  color: var(--black); /*-------------------*/
   font-size: 14px;
   line-height: 1.286;
 }
 
+@media screen and (min-width: 768px) {
+  .application-input-field,
+  .application-textarea-field {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+}
+
 .application-input-field:focus,
 .application-textarea-field:focus {
-  border: 1px solid #4dc274;
+  border: 1px solid var(--green);
   outline: none;
 }
 
 .application-input-field {
   height: 50px;
 }
+
+@media screen and (min-width: 768px) {
+  .application-input-field {
+    height: 56px;
+  }
+}
+
 .application-textarea-label {
   display: block;
   margin-bottom: 20px;
 }
+
+@media screen and (min-width: 768px) {
+  .application-textarea-label {
+    margin-bottom: 32px;
+  }
+}
+
 .application-textarea-field {
   height: 94px;
   padding-top: 16px;
@@ -176,24 +242,54 @@ body {
   resize: none;
 }
 
+@media screen and (min-width: 768px) {
+  .application-textarea-field {
+    height: 104px;
+  }
+}
+
 .application-input-field::placeholder,
 .application-textarea-field::placeholder {
-  color: #121417;
+  color: var(--black); /*-------------------*/
   font-size: 14px;
   line-height: 1.286;
+}
+
+@media screen and (min-width: 768px) {
+  .application-input-field::placeholder,
+  .application-textarea-field::placeholder {
+    color: var(--black); /*-------------------*/
+    font-size: 16px;
+    line-height: 1.5;
+  }
+}
+
+.application-radio-btn-title {
+  color: var(--black); /*-------------------*/
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.33;
+  letter-spacing: -0.02em;
+  margin-bottom: 14px;
+}
+
+@media screen and (min-width: 768px) {
+  .application-radio-btn-title {
+    font-size: 20px;
+    line-height: 1.2;
+    margin-bottom: 16px;
+  }
 }
 
 .application-radio-btn-wrap {
   margin-bottom: 32px;
 }
 
-.application-radio-btn-title {
-  color: #121417;
-  font-size: 18px;
-  font-weight: 600;
-  line-height: 1.33;
-  letter-spacing: -0.02em;
-  margin-bottom: 14px;
+@media screen and (min-width: 768px) {
+  .application-radio-btn-wrap {
+    display: flex;
+    gap: 16px;
+  }
 }
 
 .application-radio-btn {
@@ -211,42 +307,73 @@ body {
   display: flex;
   gap: 8px;
   align-items: center;
-  margin-bottom: 8px;
+  color: var(--black);
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.714;
+  letter-spacing: -0.02em;
+}
+
+@media screen and (max-width: 767px) {
+  .application-radio-label {
+    margin-bottom: 8px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .application-radio-label {
+    font-size: 18px;
+    line-height: 1.33;
+  }
 }
 
 .application-radio-btn:checked + .application-radio-label span {
-  border: 2px solid #4dc274;
+  border: 2px solid var(--green);
 }
 
 .application-radio-btn:checked + .application-radio-label span::before {
   content: '';
   position: absolute;
-  top: 3px;
-  left: 3px;
+  top: 2px;
+  left: 2px;
   width: 10px;
   height: 10px;
   display: block;
   border-radius: 50%;
-  background-color: #4dc274;
+  background-color: var(--green);
+}
+
+@media screen and (min-width: 768px) {
+  .application-radio-btn:checked + .application-radio-label span::before {
+    top: 3px;
+    left: 3px;
+  }
 }
 
 .application-radio-label span {
   position: relative;
   box-sizing: border-box;
   display: inline-block;
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
   border: 2px solid rgba(18, 20, 23, 0.2);
   border-radius: 50%;
 }
 
+@media screen and (min-width: 768px) {
+  .application-radio-label span {
+    width: 20px;
+    height: 20px;
+  }
+}
+
 .application-submit-btn {
   width: 100%;
-  background-color: #4dc274;
+  background-color: var(--green);
   border-radius: 12px;
   padding-top: 14px;
   padding-bottom: 14px;
-  color: #fff;
+  color: var(--white);
   font-size: 14px;
   font-weight: 700;
   line-height: 1.714;
@@ -255,12 +382,28 @@ body {
   margin-bottom: 16px;
 }
 
+@media screen and (min-width: 768px) {
+  .application-submit-btn {
+    padding-top: 16px;
+    padding-bottom: 16px;
+    font-size: 18px;
+    line-height: 1.56;
+  }
+}
+
 .application-policy {
   color: rgba(18, 20, 23, 0.5);
   font-size: 12px;
   line-height: 1.33;
 }
 
-.application-policy span {
+@media screen and (min-width: 768px) {
+  .application-policy {
+    font-size: 14px;
+    line-height: 1.71;
+  }
+}
+
+.application-policy-link {
   text-decoration-line: underline;
 }
